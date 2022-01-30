@@ -8,9 +8,9 @@ public class Main {
 
     public static void main(String[] args) {
         boolean isRunning = true;
-
+        var input = new Scanner(System.in); //ska vara utanför loop annars skapas en ny för varje loop
         while (isRunning) {
-            var input = new Scanner(System.in);
+
             System.out.println("Welcome what do you want to do?");
             String s = input.nextLine();
 
@@ -22,7 +22,7 @@ public class Main {
 
 
                     case "help": //
-                        System.out.println("type...checkfile,createfile,openfile or e to exit");
+                        System.out.println("type...");
                         break;
 
                     /**
@@ -68,8 +68,8 @@ public class Main {
                      */
                     case "openfile":
                         boolean isOpeningFile = true;
+                        var openFile = new Scanner(System.in);
                         while (isOpeningFile) {
-                            var openFile = new Scanner(System.in);
                             System.out.println("\nwhat file do you want to open?");
                             String open = openFile.nextLine();
 
@@ -93,6 +93,21 @@ public class Main {
                             }
                         }
                         break;
+                    case "checkanimal":
+                        System.out.println("type animal name");
+                        var checkanimal = new Scanner(System.in);
+                        String name = checkanimal.nextLine();
+                        System.out.println("type animal name");
+                        int legs = checkanimal.nextInt();
+                        System.out.println("type animal sound");
+                        String sound = checkanimal.nextLine();
+                        System.out.println("type animal favorite food");
+                        String food = checkanimal.nextLine();
+                        Animal animal = new Animal(name,legs,sound,food);
+                        System.out.println(animal.name);
+                        animal.isDoing();
+                        break;
+
                     default:
                         System.out.println("not a valid choice, try help");
 
